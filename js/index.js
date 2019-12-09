@@ -25,8 +25,16 @@ const darkMode = addEventListener('touchstart', (event) =>{
     h1Fade.style.color = 'black'
 })
 
-const loadScreen = document.querySelectorAll('h1', 'h2', 'h3', 'h4');
-loadScreen.addEventListener('load', (event) => {
-    event.target.style.opacity = '50'
-    // event.target.style.opacity = '100'
-})
+const zoomText = document.querySelector('h2');
+zoomText.addEventListener('dblclick', (event) =>{
+    event.target.style.fontSize = '5rem';
+});
+
+const loadScreen = document.querySelectorAll('p');
+    alert ('Welcome to FunBus!');
+
+const zoomImgs = document.querySelector('.intro');
+zoomImgs.addEventListener("click", (event) => {
+        // event.target.style.width = '125%'
+        event.target.style.borderBottomWidth = '10px'
+    });

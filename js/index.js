@@ -10,12 +10,16 @@ addEventListener('keydown', (event) => {
     if (event.keyCode == 55)
       alert('My favorite number!')
   })
-//   addEventListener("keyup", function(event) {
-//     if (event.keyCode == 68)
-//       document.body.style.background = "";
-//   });
-addEventListener('wheel', (event) =>{
-    alert('It must be nice to have a mouse-wheel...');
+addEventListener("keyup", function(event) {
+    if (event.keyCode == 80)
+      document.body.style.background = "pink";
+  });
+
+const navBar = document.querySelectorAll('a');
+navBar.forEach(a =>{
+    a.addEventListener('click', e =>{
+        e.preventDefault();
+    })
 })
 
 // const headerBar = document.getElementsByTagName('header');
@@ -34,22 +38,25 @@ const loadScreen = addEventListener('load', ()=>{
     alert ('Welcome to FunBus!');
 })
 
+const divClick = document.querySelectorAll('div');
+divClick.forEach(d => {
+    d.addEventListener('click', e => {
+        e.target.style.backgroundColor = 'pink';
+        // e.preventDefault()
+    })
+    })
+
 const buttonClick = document.querySelectorAll('.btn');
 for (let i = 0; i < buttonClick.length; i++) {
     var buttonArr = buttonClick[i];
-    buttonArr.addEventListener('click', (event)=>{
-        event.target.style.backgroundColor = 'pink';
-    })
+    buttonArr.addEventListener('click', e =>{
+        e.target.style.backgroundColor = ['red', 'lightgreen', 'purple', 'orange'][Math.floor(Math.random() * 4)]
+        event.stopPropagation();
+
+})
 }
 
 const rotateImg = document.getElementsByTagName('img');
-
-// resizeImg.forEach((resizeImg, i)=>{
-//     window.addEventListener('resize',(event)=>{
-//         event.target.style.transform = 'rotate(180deg)'
-//     })
-// });
-
 for (var i = 0; i < rotateImg.length; i++){
     var imgArr = rotateImg[i];
     window.addEventListener('resize', (event) =>{
@@ -61,5 +68,16 @@ const footBar = document.querySelector('.footer');
 
 const scrollThing = addEventListener('scroll',(event)=>{
         footBar.style.backgroundColor = 'pink'
+    });
+
+// const selectThing = addEventListener('select', (event)=>{
+//     event.target.style.backgroundcolor = 'pink'
+// });
+
+const images = document.querySelectorAll("img");
+    images.forEach(image => {
+    image.addEventListener('click', e => {
+        e.target.style.border = '3px solid pink';
+        // e.preventDefault()
     })
-;
+    })

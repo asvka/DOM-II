@@ -14,9 +14,9 @@ addEventListener('keydown', (event) => {
 //     if (event.keyCode == 68)
 //       document.body.style.background = "";
 //   });
-// addEventListener('wheel', (event) =>{
-//     event.preventDefault();
-// })
+addEventListener('wheel', (event) =>{
+    alert('It must be nice to have a mouse-wheel...');
+})
 
 // const headerBar = document.getElementsByTagName('header');
 const darkMode = addEventListener('touchstart', (event) =>{
@@ -30,11 +30,36 @@ zoomText.addEventListener('dblclick', (event) =>{
     event.target.style.fontSize = '5rem';
 });
 
-const loadScreen = document.querySelectorAll('p');
+const loadScreen = addEventListener('load', ()=>{
     alert ('Welcome to FunBus!');
+})
 
-const zoomImgs = document.querySelector('.intro');
-zoomImgs.addEventListener("click", (event) => {
-        // event.target.style.width = '125%'
-        event.target.style.borderBottomWidth = '10px'
-    });
+const buttonClick = document.querySelectorAll('.btn');
+for (let i = 0; i < buttonClick.length; i++) {
+    var buttonArr = buttonClick[i];
+    buttonArr.addEventListener('click', (event)=>{
+        event.target.style.backgroundColor = 'pink';
+    })
+}
+
+const rotateImg = document.getElementsByTagName('img');
+
+// resizeImg.forEach((resizeImg, i)=>{
+//     window.addEventListener('resize',(event)=>{
+//         event.target.style.transform = 'rotate(180deg)'
+//     })
+// });
+
+for (var i = 0; i < rotateImg.length; i++){
+    var imgArr = rotateImg[i];
+    window.addEventListener('resize', (event) =>{
+        imgArr.style.transform = 'rotate(180deg)'
+    })
+}
+
+const footBar = document.querySelector('.footer');
+
+const scrollThing = addEventListener('scroll',(event)=>{
+        footBar.style.backgroundColor = 'pink'
+    })
+;
